@@ -1,1 +1,1 @@
-This is an OpenGL project I made where I calculated all of the vertices by hand to create a 3D viola. The executable adds two strings on the viola in random places, so to get the working viola, the cpp file needs to be run in debug mode.
+This is an OpenGL project I made where I calculated all of the vertices by hand to create a 3D viola. 
