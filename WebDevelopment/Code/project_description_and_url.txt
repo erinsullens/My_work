@@ -1,0 +1,8 @@
+
+
+My project is called Wine Collection. It is a website where you can login using a username and password, and add bottles of wine into a collection. You can also add wine into a wine wish list if there are bottles you haven' t purchased yet, but would like to in the future. 
+
+There is also a slideshow of wine related pictures available to view, and a page to view your collection, and a page to view your wine wish list. 
+
+The url of my project is: http://web.engr.oregonstate.edu/~sullense/cs290/project/home.php
+
