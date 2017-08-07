@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 
 public class PButton extends JButton implements ActionListener{
     ImageIcon b,w;
-    boolean white = true;
     boolean canColor = true;
 
     public PButton(String label){
@@ -17,12 +16,10 @@ public class PButton extends JButton implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if (canColor) {
-            if (white) {
+            if (this.getBackground().equals(Color.white)) {
                 this.setBackground(Color.black);
-                white = !white;
             } else {
                 this.setBackground(Color.white);
-                white = !white;
             }
         }
     }

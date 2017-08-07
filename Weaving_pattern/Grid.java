@@ -2,6 +2,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 
@@ -17,20 +21,16 @@ public class Grid extends JFrame {
     int width;
     int windowWidth;
     int windowHeight;
+    int harness;
 
-    public static void main(String args[]){
-        new Grid();
 
-    }
 
-    public Grid(){
+    public Grid(int w, int h, int harness){
 
         super("Pattern");
-        Scanner reader = new Scanner(System.in);
-        System.out.println("Please enter the desired height for the grid");
-        height = reader.nextInt();
-        System.out.println("Please enter the desired width for the grid");
-        width = reader.nextInt();
+        height = h;
+        width = w;
+
         int base = 1000;
         if(height <5 && width<5){
             base = 700;
@@ -73,7 +73,68 @@ public class Grid extends JFrame {
         setVisible(true);
     }
 
-    public void createArray(){
+    public Grid(int w, int h, int harness, String pattern){
+
+
+        super("Pattern");
+        height = h;
+        width = w;
+
+        int base = 1000;
+        if(height <5 && width<5){
+            base = 700;
+        }
+
+        int hProportion = base;
+        int wProportion = base;
+        if(height>width){
+            hProportion = base;
+            wProportion = base*width/height;
+        }
+        if(width>height){
+            wProportion = base;
+            hProportion = base*height/width;
+        }
+        buttons = new PButton[height*width];
+        int heightMultiplier = hProportion/height;
+        int widthMultiplier = wProportion/width;
+        windowHeight = height*heightMultiplier;
+        windowWidth = width*widthMultiplier;
+        setSize(windowWidth,windowHeight);
+        instructions = new Instructions(width*widthMultiplier,this);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+        setResizable(false);
+        p.setLayout(new GridLayout(height,width));
+
+        for(int i = 0; i<height*width; i++){
+            buttons[i] = new PButton("");
+
+            p.add(buttons[i]);
+        }
+
+        for(int i = 0; i<pattern.length(); i++){
+
+            if(pattern.charAt(i)=='x') {
+                buttons[i].setBackground(Color.black);
+
+            }
+
+
+        }
+
+        // p.add(preview);
+        add(p);
+
+
+
+
+        setVisible(true);
+    }
+
+
+
+    public void createArray(boolean createWindow){
         patternArray = new char[width][height];
         int counter = 0;
         for(int i = 0; i<height; i++){
@@ -86,7 +147,9 @@ public class Grid extends JFrame {
                 counter++;
             }
         }
-        new PreviewWindow(width, height,patternArray);
+        if(createWindow) {
+            new PreviewWindow(width, height, patternArray);
+        }
        // print2DArray(patternArray);
 
     }
@@ -104,6 +167,47 @@ public class Grid extends JFrame {
         for(int i = 0; i< height*width;i++){
             buttons[i].setBackground(Color.white);
         }
+    }
+
+    public void savePattern(String fileName) throws IOException {
+        createArray(false);
+
+
+        BufferedWriter out = null;
+        BufferedWriter outSaved = null;
+        try
+        {
+            FileWriter savedWriter = new FileWriter("savedPatterns.txt", true);
+            outSaved = new BufferedWriter(savedWriter);
+            outSaved.write(fileName+'\n');
+            FileWriter fstream = new FileWriter(fileName, true); //true tells to append data.
+            out = new BufferedWriter(fstream);
+            String dimention = "w: "+ Integer.toString(width)+ '\n'+ "h: "+ Integer.toString(height)+'\n';
+
+            out.write(dimention);
+            for(int i = 0; i<height; i++){
+                for(int j = 0; j<width; j++){
+                    out.write(Character.toString(patternArray[j][i]) );
+                    out.write(" ");
+
+                }
+                out.write('\n');
+
+
+            }
+        }
+        catch (IOException e)
+        {
+            System.err.println("Error: " + e.getMessage());
+        }
+        finally
+        {
+            if(out != null) {
+                out.close();
+                outSaved.close();
+            }
+        }
+
     }
 
 
