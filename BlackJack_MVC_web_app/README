@@ -1,3 +1,9 @@
 This is a BlackJack web application that I developed with 3 other software engineering students in my Software Engineering course. Here is the link to the repository: 
 https://github.com/cs361-W16/Blackjack-20
 
+To run:
+
+Set up project in IDE (IntelliJ) with pom.xml
+Make sure maven is installed (https://maven.apache.org/download.cgi)
+In terminal type mvn ninja:run
+In browser open up localhost:8080/Blackjack
