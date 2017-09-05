@@ -1,0 +1,29 @@
+w: 32
+h: 8
+s: 8
+x x x o x x x x o x x x o o x x o o o x o o o o x o o o x x o o 
+x x o o x x x o x x x x o x x x o o x x o o o x o o o o x o o o 
+x o o o x x o o x x x o x x x x o x x x o o x x o o o x o o o o 
+o o o o x o o o x x o o x x x o x x x x o x x x o o x x o o o x 
+o o o x o o o o x o o o x x o o x x x o x x x x o x x x o o x x 
+o o x x o o o x o o o o x o o o x x o o x x x o x x x x o x x x 
+o x x x o o x x o o o x o o o o x o o o x x o o x x x o x x x x 
+x x x x o x x x o o x x o o o x o o o o x o o o x x o o x x x o 
+harnessGrid:
+x o o o o x o o o o x o o o o x o o o o o o o o o o o o o o o o 
+o x o o o o x o o o o x o o o o o o o o o o o o o o o o x o o o 
+o o x o o o o x o o o o o o o o o o o o o o o o x o o o o x o o 
+o o o x o o o o o o o o o o o o o o o o x o o o o x o o o o x o 
+o o o o o o o o o o o o o o o o x o o o o x o o o o x o o o o x 
+o o o o o o o o o o o o x o o o o x o o o o x o o o o x o o o o 
+o o o o o o o o x o o o o x o o o o x o o o o x o o o o o o o o 
+o o o o x o o o o x o o o o x o o o o x o o o o o o o o o o o o 
+HarnessNumbers:
+7,0,1,2
+6,7,0,1
+5,6,7,0
+4,5,6,7
+3,4,5,6
+2,3,4,5
+1,2,3,4
+0,1,2,3
