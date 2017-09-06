@@ -72,7 +72,7 @@ public class Grid extends JFrame {
         p.setLayout(new GridLayout(height,width));
         // create buttons and add to grid
         for(int i = 0; i<height*width; i++){
-            buttons[i] = new PButton("", i/width, this, hGrid);
+            buttons[i] = new PButton("", i/width, this, hGrid, i);
 
             buttons[i].canColor = false;
             p.add(buttons[i]);
@@ -126,7 +126,9 @@ public class Grid extends JFrame {
         p.setLayout(new GridLayout(height,width));
 
         for(int i = 0; i<height*width; i++){
-            buttons[i] = new PButton("", i/width, this, hGrid);
+            int row = i/width;
+            int col = i%width;
+            buttons[i] = new PButton("", row, this, hGrid, col);
             buttons[i].canColor = false;
             p.add(buttons[i]);
         }
@@ -259,6 +261,7 @@ public class Grid extends JFrame {
             if (harnessPattern[i] == 'x') {
                 buttons[indexOfButton + i].setBackground(Color.black);
             }
+
         }
         boolean harnessExists = false;
         for (int i = 0; i < harnessNumbersOnRows.get(row).size(); i++) {
@@ -273,29 +276,26 @@ public class Grid extends JFrame {
 
     }
 
-    public void clearRow(int row){
-        int indexOfButton = row * width;
-        for (int i = 0; i < width; i++) {
 
-            buttons[indexOfButton + i].setBackground(Color.white);
 
+    public void colorOneSquare(int row, int col){
+        int indexOfButton = row*width+col;
+        if(buttons[indexOfButton].getBackground().equals(Color.black)){
+            buttons[indexOfButton].setBackground(Color.white);
+        }
+        else{
+            buttons[indexOfButton].setBackground(Color.black);
         }
     }
+
     // called whenever a button on the harness grid is pressed
-    public void redoColor(int hNumber){
+    public void redoColor(int row, int column){
 
 
         for(int i = 0; i<harnessNumbersOnRows.size(); i++){
             for(int j = 0; j<harnessNumbersOnRows.get(i).size(); j++){
-                if (harnessNumbersOnRows.get(i).get(j).equals(new Integer(hNumber))) {
-                    clearRow(i);
-                    harnessGrid.createArray(false);
-
-                    for(int x = 0; x<width; x++){
-                        harnessPattern[x] = harnessGrid.patternArray[x][hNumber];
-                    }
-
-                    colorRow(i);
+                if (harnessNumbersOnRows.get(i).get(j).equals(new Integer(row))) {
+                    colorOneSquare(i,column);
                 }
             }
         }

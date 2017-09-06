@@ -66,9 +66,9 @@ public class HarnessGrid extends JFrame {
         for(int i = 0; i<height*width; i++){
             String label;
 
-            label = "h" + Integer.toString(i/width);
+            label = "h" + Integer.toString(i/width+1);
 
-            buttons[i] = new PButton(label, i/width, grid, this);
+            buttons[i] = new PButton(label, i/width, grid, this, i%width);
 
             p.add(buttons[i]);
         }
@@ -120,8 +120,8 @@ public class HarnessGrid extends JFrame {
         p.setLayout(new GridLayout(harness,width));
         String label = "";
         for(int i = 0; i<harness*width; i++){
-            label = "h" + Integer.toString(i/width);
-            buttons[i] = new PButton(label,i/width, grid, this);
+            label = "h" + Integer.toString(i/width+1);
+            buttons[i] = new PButton(label,i/width, grid, this, i%width);
             p.add(buttons[i]);
         }
         //add buttons and change color to saved pattern

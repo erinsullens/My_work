@@ -9,14 +9,16 @@ public class PButton extends JButton implements ActionListener{
     int rowToColor;
     HarnessGrid h;
     Grid g;
+    int column;
 
-    public PButton(String label, int row, Grid grid, HarnessGrid hGrid){
+    public PButton(String label, int row, Grid grid, HarnessGrid hGrid, int col){
         this.addActionListener(this);
         this.setBackground(Color.white);
         this.setText(label);
         rowToColor = row;
         g = grid;
         h = hGrid;
+        column = col;
     }
 
     @Override
@@ -25,12 +27,12 @@ public class PButton extends JButton implements ActionListener{
         if (canColor) {
             if (this.getBackground().equals(Color.white)) {
                 this.setBackground(Color.black);
-                h.grid.redoColor(rowToColor);
+                h.grid.redoColor(rowToColor,column);
 
             } else {
                 this.setBackground(Color.white);
 
-                h.grid.redoColor(rowToColor);
+                h.grid.redoColor(rowToColor, column);
             }
         }
         // action for buttons in pattern grid

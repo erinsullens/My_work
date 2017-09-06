@@ -39,7 +39,7 @@ public class PreviewWindow extends JFrame {
             for (int i = 0; i < hOriginal; i++) {
                 for(int y = 0; y <5; y++) {
                     for (int j=0; j < wOriginal; j++) {
-                        buttons[counter] = new PButton("",1, grid, h);
+                        buttons[counter] = new PButton("",1, grid, h,1);
                         buttons[counter].setBorderPainted(false);
 
                         buttons[counter].canColor = false;
