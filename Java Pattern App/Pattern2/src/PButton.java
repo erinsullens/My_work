@@ -11,6 +11,7 @@ public class PButton extends JButton implements ActionListener{
     Grid g;
     int column;
 
+
     public PButton(String label, int row, Grid grid, HarnessGrid hGrid, int col){
         this.addActionListener(this);
         this.setBackground(Color.white);
@@ -23,11 +24,25 @@ public class PButton extends JButton implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
         // action for buttons in harness grid
         if (canColor) {
+            h.grid.instructions.harnessWarning.setVisible(false);
+            h.grid.instructions.harnessWarning2.setVisible(false);
+            boolean columnIsEmpty = true;
             if (this.getBackground().equals(Color.white)) {
-                this.setBackground(Color.black);
-                h.grid.redoColor(rowToColor,column);
+                for(int i = 0; i< h.harness; i++){
+                    h.createArray(false);
+                    if(h.patternArray[column][i]=='x'){
+                        columnIsEmpty = false;
+                        h.grid.instructions.harnessWarning.setVisible(true);
+                        h.grid.instructions.harnessWarning2.setVisible(true);
+                    }
+                }
+                if(columnIsEmpty) {
+                    this.setBackground(Color.black);
+                    h.grid.redoColor(rowToColor, column);
+                }
 
             } else {
                 this.setBackground(Color.white);

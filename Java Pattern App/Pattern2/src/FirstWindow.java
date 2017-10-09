@@ -20,6 +20,7 @@ public class FirstWindow extends JFrame {
     JComboBox<String> saved;
     // first window that appears in the program. User input is the dimensions for grid, or load pattern
     public FirstWindow() throws FileNotFoundException {
+        super("First Window");
         setSize(500, 300);
         p.setLayout(null);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
