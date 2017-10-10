@@ -1,6 +1,0 @@
-triangles.txt
-triangle.txt
-page35_#150.txt
-asdff.txt
-asdf.txt
-d.txt
