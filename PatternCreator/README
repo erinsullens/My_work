@@ -1,1 +1,44 @@
-Here is the zip file containing everything to run my Java Pattern Creator program. It also includes the updated source files. 
+Here is the zip file containing everything to run my Java Pattern Creator program. It is a program that allows you to create your own weaving patterns. Below are instructions on how to use it. 
+
+To understand the program, you first must know a little bit about how weaving works. This link takes you to a loom that I created in Blender,
+which will help you understand how a loom works: https://github.com/erinsullens/My_work/tree/master/Loom. There is also a picture of the loom model in this folder. 
+To set up a loom (also called warping the loom), each string is attached to one of 4 harnesses (looms can have varying numbers of harnesses. The more harnesses
+a loom has the more complex patterns you can weave). You can see in the picture that all the blue strings are attached to the first harness which I have highlighted in bring orange. When 
+specific harness is pulled up using the lever assigned to it, all the strings attached to that harness are pulled up as well, like you see in the picture. You then send yarn through the gap
+created and this creates the weaving. The pattern that you use to attach the warp to the harnesses determines what pattern you weave. 
+
+Steps to use program:
+
+To run program, go into the Jar File folder and run the jar file using the command java -jar PatternCreator.jar in the command line
+
+1. The "First Window" that pops up allows you to either create a new pattern from scratch, or you can select a saved pattern to load. 
+
+2. If you create a new pattern from scratch, you enter the width and height of the pattern you want to create, and the number of harnesses your loom has, then press "Continue".
+
+	a. You are then presented with two blank grids, and one window called "Controls" with buttons on it. The "Pattern" grid is where you will draw your final pattern. The "Harness" grid is where you
+	   select how the strings are attached to the harnesses. 
+
+	b. You first fill in the Harness grid. Each row represents a different harness, and you can only have one square colored in per column. At any time, you can change the harness pattern in on the 
+	   "Harness" grid. 
+	
+	c. You then click on the "h#" buttons to select what harness to color onto the "Pattern" grid. Click on a "h#" button then click on a row in the "Pattern" grid and it will copy that harness 
+	   onto the row you selected. You can either put just one harness onto a row or you can have multiple harnesses. 
+	
+	d. At any time, you can preview what the pattern will look like when it is duplicated like it would he in an actual weaving by clicking the "Preview Pattern" button. 
+
+	e. When you want to save your pattern, you enter a name into the text box in the "Controls" Window and click "Save Pattern". You can then load the pattern and edit it later. 
+
+	f. When the pattern is finished, click "Create Pattern" and it will create a text file named pattern.txt with the instructions on how to warp the loom and the pattern to weave. 
+
+3. If you load a saved pattern, it will load up both grids and the "Controls" window, and you can proceed with your pattern in whatever way you wish. 
+
+
+
+I have a few saved patterns that can be loaded. One is a pattern that I wove once, called "Illusion" that is made with a 4-harness loom, and the other is a pattern from a weaving 
+pattern book that I have, which is woven on an 8-harness loom.
+
+Features I still need to add:
+
+- A way to erase specific harnesses from the "Pattern" grid
+- An elegant way to display what harnesses are on what row in the "Pattern" grid
+- When you change a square on the "Harness" grid when there is already a square in that column colored, it automatically changes it to white and colors the one you selected. 
